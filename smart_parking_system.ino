@@ -225,33 +225,33 @@ flag1=0, flag2=0;
 
 delay(1000);   
 display.clearDisplay();
-///////////////////////////////////////////////////////
-// Serial.println("Sending to rf96_server");
-//   // Send a message to rf95_server
-//   uint8_t data[] = "Hello I'm from lora!";
-//   rf96.send(data, sizeof(data));
-//   rf96.waitPacketSent();
-//   // Now wait for a reply
-//   uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
-//   uint8_t len = sizeof(buf);
-//   if (rf96.waitAvailableTimeout(3000))
-//   {
-//     // Should be a reply message for us now
-//     if (rf96.recv(buf, &len))
-//     {
-//       Serial.print("got reply: ");
-//       Serial.println((char*)buf);
-//     }
-//     else
-//     {
-//       Serial.println("recv failed");
-//     }
-//   }
-//   else
-//   {
-//     Serial.println("No reply, is rf95_server running?");
-//   }
-//   delay(400);
+////////////// LORA connection//////////////////////////// 
+Serial.println("Sending to rf96_server");
+  // Send a message to rf95_server
+  uint8_t data[] = "Hello I'm from lora!";
+  rf96.send(data, sizeof(data));
+  rf96.waitPacketSent();
+  // Now wait for a reply
+  uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
+  uint8_t len = sizeof(buf);
+  if (rf96.waitAvailableTimeout(3000))
+  {
+    // Should be a reply message for us now
+    if (rf96.recv(buf, &len))
+    {
+      Serial.print("got reply: ");
+      Serial.println((char*)buf);
+    }
+    else
+    {
+      Serial.println("recv failed");
+    }
+  }
+  else
+  {
+    Serial.println("No reply, is rf95_server running?");
+  }
+  delay(400);
 
 
 }
